@@ -8,6 +8,13 @@ import numpy as np
 import pandas as pd
 import joblib
 
+# ── Page config (MUST be first Streamlit command) ─────────────
+st.set_page_config(
+    page_title="Diabetes Risk Predictor",
+    page_icon="🏥",
+    layout="centered"
+)
+
 # ── Load model artifacts ──────────────────────────────────────
 @st.cache_resource
 def load_model():
@@ -17,13 +24,6 @@ def load_model():
     return model, scaler, feature_names
 
 model, scaler, feature_names = load_model()
-
-# ── Page config ───────────────────────────────────────────────
-st.set_page_config(
-    page_title="Diabetes Risk Predictor",
-    page_icon="🏥",
-    layout="centered"
-)
 
 st.title("🏥 Diabetes Risk Predictor")
 st.markdown("""
